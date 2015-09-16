@@ -5,23 +5,11 @@ This is just a simple PAM module and test code for it. There really isn't much t
 
 To build, either use the build scripts or use these commands:
 
-**Build the PAM module**
+**Build the PAM module and Test**
 
-`gcc -fPIC -fno-stack-protector -c src/mypam.c`
+`make;make install`
 
-`sudo ld -x --shared -o /lib/security/mypam.so mypam.o`
-
-The first command builds the object file in the current directory and the second links it with PAM. Since it's a shared library, PAM can use it on the fly without having to restart.
-
-**Build Test**
-
-`g++ -o pam_test src/test.c -lpam -lpam_misc`
-
-OR
-
-`gcc -o pam_test src/test.c -lpam -lpam_misc`
-
-The test program is valid C, so it could be compiled using gcc or g++. I like g++ better because I'll probably want to extend it and I like C++ better.
+This command builds the object file in the current directory and than links it with PAM. Since it's a shared library, PAM can use it on the fly without having to restart.
 
 Simple Usage
 ------------
